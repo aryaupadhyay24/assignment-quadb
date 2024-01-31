@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.css";
-import { useGlobalContext } from "../../context";
+import { useGlobalContext } from "../../context.js";
 import MovieCard from "../../components/movieCard/MovieCard.jsx";
 import ReactLoading from 'react-loading';
 const Home = () => {
@@ -11,8 +11,8 @@ const Home = () => {
     <div className="home-container">
       {loading
         ? <ReactLoading type="spinningBubbles" color="green" height={'40%'} width={'20%'} />
-        : movies.map((item) => {
-            return <MovieCard data={item} key={item.show.id} />;
+        :movies?.length>0 && movies.map((item) => {
+            return <MovieCard data={item} key={item?.show?.id} />;
           })}
     </div>
   );

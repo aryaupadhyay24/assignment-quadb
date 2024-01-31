@@ -10,7 +10,7 @@ const {movies}=useGlobalContext();
     
   return (
     <>
-     { movies.filter((item)=>{
+     {movies?.length>0 && movies.filter((item)=>{
        return item.show.id===Number(id);
     }).map((item)=>{
         return <MovieDetails data={item}/>
